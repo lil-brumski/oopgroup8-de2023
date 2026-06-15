@@ -10,14 +10,19 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+
+    private ImageView backGPhoto;
+    private Button imageButtom;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,18 +34,23 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        backGPhoto = findViewById(R.id.backGroundImage);
+        imageButtom = findViewById(R.id.backSetter);
+
+        imageButtom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent camera_opener_bro = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                startActivityForResult(camera_opener_bro, 100);
+            }
+        });
     }
 
-    /*
-    public void disable(View v){
-        v.setEnabled(false);
+    //@Override
+    //protected void OnActivityResult(int requestCode, int resultCode){
 
-        Button b = (Button)v;
-        b.setText("Sup bro?");
-
-        Log.d("Success", "Disabled button");
     }
-    */
 
     public void handleText(View v){
         EditText t = findViewById(R.id.editTextText1);
