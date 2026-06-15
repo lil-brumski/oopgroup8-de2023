@@ -16,7 +16,6 @@
         android:layout_marginTop="276dp"
         android:ems="10"
         android:inputType="text"
-        android:text="My name is John"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -26,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginTop="154dp"
-        android:text="Tell us something about yourself"
+        android:text="Tell us who you are"
         app:layout_constraintBottom_toTopOf="@+id/editTextText1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -67,7 +66,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="52dp"
             android:layout_marginTop="24dp"
-            android:text="Group 8 - Object Oriented Software Development"
+            android:text="Group X - Object Oriented Software Development"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
