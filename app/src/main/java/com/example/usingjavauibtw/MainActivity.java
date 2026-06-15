@@ -1,5 +1,6 @@
 package com.example.usingjavauibtw;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -56,6 +57,13 @@ public class MainActivity extends AppCompatActivity {
 
         Intent aboutAct = new Intent(this, AboutActivity.class);
         startActivity(aboutAct);
+    }
+
+    public void checkContact(View v){
+        findViewById(R.id.button2);
+
+        Intent contactAct = new Intent(this, ContactActivity.class);
+        startActivity(contactAct);
     }
 
     public void photoBro(View v){
