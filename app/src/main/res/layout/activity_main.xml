@@ -46,8 +46,8 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="372dp"
+        android:layout_marginStart="192dp"
+        android:layout_marginTop="376dp"
         android:textColor="#E70C0C"
         android:textColorLink="#ED0A0A"
         android:textSize="24sp"
@@ -112,5 +112,15 @@
         android:text="Set Wallpaper"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/backGroundImage"
+        android:layout_width="121dp"
+        android:layout_height="94dp"
+        android:layout_marginStart="36dp"
+        android:layout_marginTop="362dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_gallery" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
