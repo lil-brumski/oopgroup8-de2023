@@ -10,8 +10,8 @@
 
     <EditText
         android:id="@+id/editTextText1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="141dp"
+        android:layout_height="43dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="276dp"
         android:ems="10"
@@ -36,7 +36,7 @@
         android:id="@+id/button5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="246dp"
+        android:layout_marginStart="168dp"
         android:onClick="handleText"
         android:text="Send"
         app:layout_constraintStart_toStartOf="parent"
@@ -50,7 +50,7 @@
         android:layout_marginTop="372dp"
         android:textColor="#E70C0C"
         android:textColorLink="#ED0A0A"
-        android:textSize="34sp"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -83,30 +83,33 @@
 
         <Button
             android:id="@+id/button"
-            android:layout_width="99dp"
+            android:layout_width="137dp"
             android:layout_height="wrap_content"
             android:enabled="true"
             android:text="Home" />
 
         <Button
-            android:id="@+id/button3"
-            android:layout_width="95dp"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:text="Photo" />
-
-        <Button
             android:id="@+id/button4"
-            android:layout_width="wrap_content"
+            android:layout_width="108dp"
             android:layout_height="wrap_content"
             android:onClick="checkAbout"
             android:text="About" />
 
         <Button
             android:id="@+id/button2"
-            android:layout_width="wrap_content"
+            android:layout_width="126dp"
             android:layout_height="wrap_content"
             android:text="Contact" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="256dp"
+        android:layout_marginTop="276dp"
+        android:text="Set Wallpaper"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

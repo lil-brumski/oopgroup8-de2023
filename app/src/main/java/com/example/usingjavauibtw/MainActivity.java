@@ -57,4 +57,9 @@ public class MainActivity extends AppCompatActivity {
         Intent aboutAct = new Intent(this, AboutActivity.class);
         startActivity(aboutAct);
     }
+
+    public void photoBro(View v){
+        Intent myBro = new Intent(this, MediaStuff.class);
+        startActivity(myBro);
+    }
 }
