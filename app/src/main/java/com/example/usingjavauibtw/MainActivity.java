@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
     //@Override
     //protected void OnActivityResult(int requestCode, int resultCode){
 
-    }
+    //}
 
     public void handleText(View v){
         EditText t = findViewById(R.id.editTextText1);
