@@ -2,9 +2,13 @@ package com.example.usingjavauibtw;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
@@ -35,17 +39,39 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
 
-        backGPhoto = findViewById(R.id.backGroundImage);
-        imageButtom = findViewById(R.id.backSetter);
+        imageView = findViewById(R.id.backGroundImage);
 
-        imageButtom.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent camera_opener_bro = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                startActivityForResult(camera_opener_bro, 100);
-            }
+        Button selectPictureButton =
+                findViewById(R.id.backSetter);
+
+        selectPictureButton.setOnClickListener(v -> {
+
+            String[] options = {"Take Photo", "Choose From Gallery"};
+
+            new android.app.AlertDialog.Builder(this)
+                    .setTitle("Select Image")
+                    .setItems(options, (dialog, which) -> {
+
+                        if (which == 0) {
+
+                            Intent cameraIntent =
+                                    new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+
+                            cameraLauncher.launch(cameraIntent);
+
+                        } else {
+
+                            Intent galleryIntent =
+                                    new Intent(Intent.ACTION_PICK,
+                                            MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+
+                            galleryLauncher.launch(galleryIntent);
+                        }
+                    })
+                    .show();
         });
     }
+
 
     //@Override
     //protected void OnActivityResult(int requestCode, int resultCode){
@@ -80,4 +106,33 @@ public class MainActivity extends AppCompatActivity {
         Intent myBro = new Intent(this, MediaStuff.class);
         startActivity(myBro);
     }
+
+    //Special
+    private ImageView imageView;
+
+    private final ActivityResultLauncher<Intent> galleryLauncher =
+            registerForActivityResult(
+                    new ActivityResultContracts.StartActivityForResult(),
+                    result -> {
+                        if (result.getResultCode() == RESULT_OK &&
+                                result.getData() != null) {
+
+                            Uri imageUri = result.getData().getData();
+                            imageView.setImageURI(imageUri);
+                        }
+                    });
+
+    private final ActivityResultLauncher<Intent> cameraLauncher =
+            registerForActivityResult(
+                    new ActivityResultContracts.StartActivityForResult(),
+                    result -> {
+                        if (result.getResultCode() == RESULT_OK &&
+                                result.getData() != null) {
+
+                            Bitmap bitmap =
+                                    (Bitmap) result.getData().getExtras().get("data");
+
+                            imageView.setImageBitmap(bitmap);
+                        }
+                    });
 }
